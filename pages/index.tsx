@@ -1,8 +1,8 @@
-import { gql, useQuery } from "@apollo/client";
+import { gql } from "@apollo/client";
 import Link from "next/link";
 import Layout from "../components/Layout";
 import { GetStaticProps } from "next";
-import { useApollo, initializeApollo } from "../lib/apolloClient";
+import { initializeApollo } from "../lib/apolloClient";
 
 export const allCompounds = gql`
   query MyQuery {
@@ -72,7 +72,7 @@ export const getStaticProps: GetStaticProps = async () => {
   // Don't forget to include the respective types for any props passed into
   // the component.
   const client = initializeApollo();
-  const resp = await client.query({query:allCompounds})
+  const resp = await client.query({ query: allCompounds });
   //const { data } = useQuery(allCompounds);
   const compounds: Compound[] = resp?.data.compounds;
   return { props: { compounds } };
