@@ -20,17 +20,31 @@ const Layout = ({
     <header>
       <nav>
         <Link href="/">
-          <a>Home</a>
-        </Link>{" "}
-        |{" "}
+          <a className="m-2 text-base font-medium text-gray-500 hover:text-gray-900">
+            Home
+          </a>
+        </Link>
         <Link href="/about">
-          <a>About</a>
-        </Link>{" "}
-        |{" "}
+          <a className="m-2 text-base font-medium text-gray-500 hover:text-gray-900">
+            About
+          </a>
+        </Link>
+        <Link href="/developers">
+          <a className="m-2 text-base font-medium text-gray-500 hover:text-gray-900">
+            Developers
+          </a>
+        </Link>
         <Link href="/users">
-          <a>Users List</a>
-        </Link>{" "}
-        | <a href="/api/users">Users API</a>
+          <a className="m-2 text-base font-medium text-gray-500 hover:text-gray-900">
+            Users List
+          </a>
+        </Link>
+        <a
+          href="/api/users"
+          className="m-2 text-base font-medium text-gray-500 hover:text-gray-900"
+        >
+          Users API
+        </a>
       </nav>
     </header>
     {children}
