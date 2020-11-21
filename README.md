@@ -3,13 +3,13 @@
 This is a really simple project that shows the usage of Next.js with TypeScript.
 
 ## Open in gitpod
-[![open in gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/abdelmomen1985/realplat-next-ts/)
+[![open in gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/abdelmomen1985/realplat-next-vercel/)
 
 ## Deploy your own
 
 Deploy the example using [Vercel](https://vercel.com):
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/abdelmomen1985/realplat-next-ts)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/abdelmomen1985/realplat-next-vercel)
 
 ## How to use it?
 
