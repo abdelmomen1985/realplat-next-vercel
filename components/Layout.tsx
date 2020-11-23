@@ -21,17 +21,25 @@ const Layout = ({
       <nav>
         <Link href="/">
           <a className="m-2 text-base font-medium text-gray-500 hover:text-gray-900">
-            Home
+            Compounds
           </a>
         </Link>
-        <Link href="/about">
-          <a className="m-2 text-base font-medium text-gray-500 hover:text-gray-900">
-            About
-          </a>
-        </Link>
+
         <Link href="/developers">
           <a className="m-2 text-base font-medium text-gray-500 hover:text-gray-900">
             Developers
+          </a>
+        </Link>
+
+        <Link href="/units">
+          <a className="m-2 text-base font-medium text-gray-500 hover:text-gray-900">
+            Units
+          </a>
+        </Link>
+
+        <Link href="/about">
+          <a className="m-2 text-base font-medium text-gray-500 hover:text-gray-900">
+            About
           </a>
         </Link>
         <Link href="/users">

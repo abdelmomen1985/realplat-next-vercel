@@ -1,24 +1,11 @@
-import { gql } from "@apollo/client";
+import { GetStaticProps } from "next";
 import Link from "next/link";
 import Layout from "../components/Layout";
-import { GetStaticProps } from "next";
 import { initializeApollo } from "../lib/apolloClient";
+import { GET_COMPOUNDS } from "../src/queries/compounds";
+import { Compound } from "../src/types/compound";
 
-export const allCompounds = gql`
-  query MyQuery {
-    compounds {
-      name
-      media
-    }
-  }
-`;
-
-export type Compound = {
-  name: { ar: string; en: string };
-  media: any;
-};
-
-const MyCard = ({ compound }: { compound: any }) => (
+const MyCard = ({ compound }: { compound: Compound }) => (
   <div className="w-1/3 flex">
     <div className="m-2 max-w-sm rounded overflow-hidden shadow-lg flex-1">
       <img
@@ -28,12 +15,8 @@ const MyCard = ({ compound }: { compound: any }) => (
         alt="Sunset in the mountains"
       />
       <div className="px-6 py-4">
-        <h1 className="text-purple-500 mb-2"> {compound.name.ar}</h1>
-        <p className="text-gray-700 text-base">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
-          quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
-          nihil.
-        </p>
+        <h1 className="text-purple-500 mb-2"> {compound.name.en}</h1>
+        <p className="text-gray-700 text-base">{compound.description.en}</p>
       </div>
       <div className="px-6 pt-4 pb-2">
         <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
@@ -52,7 +35,7 @@ const MyCard = ({ compound }: { compound: any }) => (
 const IndexPage = ({ compounds }: { compounds: Compound[] }) => {
   return (
     <Layout title="Realstate Brand">
-      <div className="flex flex-wrap ">
+      <div className="flex flex-wrap pt-4">
         {compounds &&
           compounds.map((compound: any) => (
             <MyCard key={compound.name.ar} compound={compound} />
@@ -72,7 +55,7 @@ export const getStaticProps: GetStaticProps = async () => {
   // Don't forget to include the respective types for any props passed into
   // the component.
   const client = initializeApollo();
-  const resp = await client.query({ query: allCompounds });
+  const resp = await client.query({ query: GET_COMPOUNDS });
   //const { data } = useQuery(allCompounds);
   const compounds: Compound[] = resp?.data.compounds;
   return { props: { compounds } };

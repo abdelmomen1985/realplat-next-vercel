@@ -4,11 +4,8 @@ import { GetStaticProps } from "next";
 import { GET_DEVELOPERS } from "../../src/queries/developers";
 import Layout from "../../components/Layout";
 import { initializeApollo } from "../../lib/apolloClient";
+import { Developer } from "../../src/types/developer";
 
-type Developer = {
-    name: {ar:string, en: string},
-    media: any
-}
 const DeveloperCard = ({ developer }: { developer: Developer }) => (
   <div className="w-1/3 flex">
     <div className="m-2 max-w-sm rounded overflow-hidden shadow-lg flex-1">
@@ -19,12 +16,8 @@ const DeveloperCard = ({ developer }: { developer: Developer }) => (
         alt="Sunset in the mountains"
       />
       <div className="px-6 py-4">
-        <h1 className="text-purple-500 mb-2"> {developer.name.ar}</h1>
-        <p className="text-gray-700 text-base">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
-          quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
-          nihil.
-        </p>
+        <h1 className="text-purple-500 mb-2"> {developer.name.en}</h1>
+        <p className="text-gray-700 text-base">{developer.description.en}</p>
       </div>
       <div className="px-6 pt-4 pb-2">
         <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
@@ -43,7 +36,7 @@ const DeveloperCard = ({ developer }: { developer: Developer }) => (
 const DevelopersPage = ({ developers }: { developers: Developer[] }) => {
   return (
     <Layout title="Realstate Brand">
-      <div className="flex flex-wrap ">
+      <div className="flex flex-wrap pt-4">
         {developers &&
           developers.map((developer: any) => (
             <DeveloperCard key={developer.name.ar} developer={developer} />
